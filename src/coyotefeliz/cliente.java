@@ -5,7 +5,11 @@
  */
 
 package coyotefeliz;
-
+import java.sql.*;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Doraly
@@ -53,12 +57,11 @@ public class cliente extends javax.swing.JFrame {
         FDA_cliente = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CLIENTE");
         setBackground(new java.awt.Color(255, 51, 51));
         setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -220,20 +223,24 @@ public class cliente extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/1395395569_button_cancel.png"))); // NOI18N
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(320, 535, 103, 30);
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/1395396002_Add-Male-User.png"))); // NOI18N
         jButton2.setText("Añadir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(220, 535, 89, 30);
-
-        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/1395397828_back.png"))); // NOI18N
-        jButton3.setText("Atrás");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(130, 535, 83, 30);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -264,6 +271,65 @@ public class cliente extends javax.swing.JFrame {
     private void telefono_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefono_clienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telefono_clienteActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CP_cliente.setText("");
+        FDA_cliente.setText("");
+        RFC_cliente.setText("");
+        calleynumero_cliente.setText("");
+        celular_cliente.setText("");
+        colonia_cliente.setText("");
+        email_cliente.setText("");
+        nombres_cliente.setText("");
+        numero_cliente.setText("");
+        telefono_cliente.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String cp_c = CP_cliente.getText();
+        String fda_c =FDA_cliente.getText();
+        String rfc_c = RFC_cliente.getText();
+        String calleynumero_c =calleynumero_cliente.getText();
+        String celular_c =celular_cliente.getText();
+        String colonia_c =colonia_cliente.getText();
+        String email_c =email_cliente.getText();
+        String nombres_c =nombres_cliente.getText();
+        String numero_c =numero_cliente.getText();
+        String telefono_c =telefono_cliente.getText();
+        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+
+        try {
+        //creando conexion
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conexion = DriverManager.getConnection ("jdbc:mysql://localhost/coyotefeliz","coyote", "coyote");
+        
+       //creando el vehiculo para ejecutar el query
+        Statement db = conexion.createStatement(); 
+       // se usa executequery para unicamente el SELECT, para lo demas es executeupdate
+       db.executeUpdate ("INSERT INTO cliente (nombres, RFC, fecha, telefono, celular, "
+               + "email, calleynumero, municipio, colonia, CP) "
+               + "VALUES ('"+nombres_c+"','"+rfc_c+"','"+dateFormat.format(date)+"',"+telefono_c+","+
+               celular_c+",'"+email_c+"','"+calleynumero_c+"','"+municipio_cliente.getSelectedItem()+"','"+colonia_c+"',"+cp_c+")");
+       //borrado de datos de la forma
+       CP_cliente.setText("");
+        FDA_cliente.setText("");
+        RFC_cliente.setText("");
+        calleynumero_cliente.setText("");
+        celular_cliente.setText("");
+        colonia_cliente.setText("");
+        email_cliente.setText("");
+        nombres_cliente.setText("");
+        numero_cliente.setText("");
+        telefono_cliente.setText("");
+        JOptionPane.showMessageDialog(null, "Se ha agregado a la abse de datos");
+       //hasta al ultimo hay que cerrar la conexion a la db
+       conexion.close();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,7 +378,6 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JTextField email_cliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

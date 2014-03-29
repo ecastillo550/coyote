@@ -5,7 +5,7 @@
  */
 
 package coyotefeliz;
-
+import java.sql.*;
 /**
  *
  * @author Doraly
@@ -18,7 +18,8 @@ public class Coyotefeliz {
     public static void main(String[] args) {
         
  
-        // TODO code application logic here
+        menu menufrm = new menu();
+        menufrm.setVisible(true);
     }
     
 }

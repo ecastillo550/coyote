@@ -5,7 +5,7 @@
  */
 
 package coyotefeliz;
-
+import java.sql.*;
 /**
  *
  * @author Doraly
@@ -45,6 +45,11 @@ public class menu extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/1395397202_Client_Male_Light.png"))); // NOI18N
         jButton1.setText("CLIENTE");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(10, 20, 173, 70);
 
@@ -88,6 +93,11 @@ public class menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        cliente clientefrm = new cliente();
+        clientefrm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

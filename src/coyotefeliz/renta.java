@@ -76,7 +76,7 @@ public class renta extends javax.swing.JFrame {
         ag_en = new java.awt.Checkbox();
         ag_re_renta = new java.awt.Checkbox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(400, 500));
         getContentPane().setLayout(null);
 

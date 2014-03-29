@@ -62,7 +62,7 @@ public class factura extends javax.swing.JFrame {
         jTextField15 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FACTURA");
         getContentPane().setLayout(null);
 
@@ -228,46 +228,52 @@ public class factura extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(62, 184, 452, 164);
 
-        jLabel11.setText("jLabel11");
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setText("SUBTOTAL");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(420, 369, 40, 14);
+        jLabel11.setBounds(390, 369, 70, 15);
 
-        jLabel12.setText("jLabel12");
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("IVA16%");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(420, 395, 40, 14);
+        jLabel12.setBounds(410, 395, 50, 15);
 
-        jLabel13.setText("jLabel13");
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("TOTAL");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(420, 421, 40, 14);
+        jLabel13.setBounds(412, 421, 40, 15);
 
-        jLabel14.setText("jLabel14");
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("CANTIDAD CON LETRA:");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(41, 471, 40, 14);
+        jLabel14.setBounds(20, 500, 140, 15);
 
-        jTextField12.setText("jTextField12");
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField12ActionPerformed(evt);
             }
         });
         getContentPane().add(jTextField12);
-        jTextField12.setBounds(464, 366, 65, 20);
-
-        jTextField13.setText("jTextField13");
+        jTextField12.setBounds(464, 366, 60, 20);
         getContentPane().add(jTextField13);
-        jTextField13.setBounds(464, 392, 65, 20);
-
-        jTextField14.setText("jTextField14");
+        jTextField13.setBounds(464, 392, 60, 20);
         getContentPane().add(jTextField14);
-        jTextField14.setBounds(464, 418, 65, 20);
+        jTextField14.setBounds(464, 418, 60, 20);
 
-        jTextField15.setText("jTextField15");
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField15ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField15);
-        jTextField15.setBounds(85, 468, 332, 20);
+        jTextField15.setBounds(160, 500, 320, 20);
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/SAT.png"))); // NOI18N
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(20, 70, 620, 570);
+        jLabel16.setBounds(10, -20, 620, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,6 +305,10 @@ public class factura extends javax.swing.JFrame {
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
 
     /**
      * @param args the command line arguments
