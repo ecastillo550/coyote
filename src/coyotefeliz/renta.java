@@ -59,15 +59,11 @@ public class renta extends javax.swing.JFrame {
         JLABEL = new javax.swing.JLabel();
         CP_renta = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        CHECKBOX1 = new java.awt.Checkbox();
-        FDA_en = new javax.swing.JTextField();
         numero_renta = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         mun_re_renta = new javax.swing.JComboBox();
         CP_re_renta = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        CHECKBOX2 = new java.awt.Checkbox();
-        FDA_re_renta = new javax.swing.JTextField();
         cyn_re_renta = new javax.swing.JTextField();
         jlabel2 = new javax.swing.JLabel();
         col_re_renta = new javax.swing.JTextField();
@@ -264,18 +260,6 @@ public class renta extends javax.swing.JFrame {
         getContentPane().add(jLabel15);
         jLabel15.setBounds(20, 429, 73, 20);
 
-        CHECKBOX1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        CHECKBOX1.setLabel("Fuera del A.M.");
-        CHECKBOX1.setName(""); // NOI18N
-        getContentPane().add(CHECKBOX1);
-        CHECKBOX1.setBounds(222, 429, 100, 20);
-
-        FDA_en.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        FDA_en.setBorder(null);
-        FDA_en.setPreferredSize(new java.awt.Dimension(10, 21));
-        getContentPane().add(FDA_en);
-        FDA_en.setBounds(332, 431, 88, 20);
-
         numero_renta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         numero_renta.setBorder(null);
         getContentPane().add(numero_renta);
@@ -306,18 +290,6 @@ public class renta extends javax.swing.JFrame {
         jLabel17.setText("Municipio:");
         getContentPane().add(jLabel17);
         jLabel17.setBounds(20, 590, 73, 20);
-
-        CHECKBOX2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        CHECKBOX2.setLabel("Fuera del A.M.");
-        CHECKBOX2.setName(""); // NOI18N
-        getContentPane().add(CHECKBOX2);
-        CHECKBOX2.setBounds(220, 590, 100, 20);
-
-        FDA_re_renta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        FDA_re_renta.setBorder(null);
-        FDA_re_renta.setPreferredSize(new java.awt.Dimension(10, 21));
-        getContentPane().add(FDA_re_renta);
-        FDA_re_renta.setBounds(330, 590, 88, 20);
 
         cyn_re_renta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cyn_re_renta.setBorder(null);
@@ -412,13 +384,9 @@ public class renta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
-    private java.awt.Checkbox CHECKBOX1;
-    private java.awt.Checkbox CHECKBOX2;
     private javax.swing.JTextField CP_re_renta;
     private javax.swing.JTextField CP_renta;
     private javax.swing.JButton Cancelar;
-    private javax.swing.JTextField FDA_en;
-    private javax.swing.JTextField FDA_re_renta;
     private javax.swing.JLabel JLABEL;
     private javax.swing.JLabel JLABEL1;
     private javax.swing.JButton Realizar;

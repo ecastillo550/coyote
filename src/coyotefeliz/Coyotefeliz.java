@@ -18,8 +18,10 @@ public class Coyotefeliz {
     public static void main(String[] args) {
         
  
-        menu menufrm = new menu();
-        menufrm.setVisible(true);
+       // menu menufrm = new menu();
+        //menufrm.setVisible(true);
+        factura facturafrm = new factura();
+        facturafrm.setVisible(true);
     }
     
 }

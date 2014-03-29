@@ -5,7 +5,11 @@
  */
 
 package coyotefeliz;
-
+import java.sql.*;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Doraly
@@ -17,6 +21,9 @@ public class factura extends javax.swing.JFrame {
      */
     public factura() {
         initComponents();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        jTextField2.setText(dateFormat.format(date));
     }
 
     /**
@@ -28,7 +35,8 @@ public class factura extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("coyotefeliz?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,10 +68,15 @@ public class factura extends javax.swing.JFrame {
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FACTURA");
+        setPreferredSize(new java.awt.Dimension(650, 650));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -101,7 +114,7 @@ public class factura extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(518, 37, 51, 21);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(476, 11, 108, 20);
+        jTextField2.setBounds(476, 11, 140, 20);
 
         jLabel8.setText("FECHA:");
         getContentPane().add(jLabel8);
@@ -271,10 +284,6 @@ public class factura extends javax.swing.JFrame {
         getContentPane().add(jTextField15);
         jTextField15.setBounds(160, 500, 320, 20);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/SAT.png"))); // NOI18N
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(10, -20, 620, 570);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -346,14 +355,12 @@ public class factura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager entityManager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -362,7 +369,9 @@ public class factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;

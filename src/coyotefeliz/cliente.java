@@ -53,13 +53,11 @@ public class cliente extends javax.swing.JFrame {
         JLABEL = new javax.swing.JLabel();
         CP_cliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        CHECKBOX1 = new java.awt.Checkbox();
-        FDA_cliente = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        buscar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CLIENTE");
@@ -208,18 +206,6 @@ public class cliente extends javax.swing.JFrame {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(20, 347, 73, 20);
 
-        CHECKBOX1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        CHECKBOX1.setLabel("Fuera del A.M.");
-        CHECKBOX1.setName(""); // NOI18N
-        getContentPane().add(CHECKBOX1);
-        CHECKBOX1.setBounds(220, 349, 100, 20);
-
-        FDA_cliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        FDA_cliente.setBorder(null);
-        FDA_cliente.setPreferredSize(new java.awt.Dimension(10, 21));
-        getContentPane().add(FDA_cliente);
-        FDA_cliente.setBounds(330, 351, 88, 20);
-
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/1395395569_button_cancel.png"))); // NOI18N
         jButton1.setText("Cancelar");
@@ -250,16 +236,18 @@ public class cliente extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(10, 20, 450, 64);
 
+        buscar.setText("buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buscar);
+        buscar.setBounds(150, 100, 65, 23);
+
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/coyote.jpg"))); // NOI18N
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(-460, -50, 1000, 680);
-
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coyotefeliz/imagenes/1395396002_Add-Male-User.png"))); // NOI18N
-        jLabel12.setText("Nombres:");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(20, 127, 90, 20);
+        jLabel11.setBounds(-460, -30, 1000, 640);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,7 +262,6 @@ public class cliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CP_cliente.setText("");
-        FDA_cliente.setText("");
         RFC_cliente.setText("");
         calleynumero_cliente.setText("");
         celular_cliente.setText("");
@@ -287,7 +274,6 @@ public class cliente extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String cp_c = CP_cliente.getText();
-        String fda_c =FDA_cliente.getText();
         String rfc_c = RFC_cliente.getText();
         String calleynumero_c =calleynumero_cliente.getText();
         String celular_c =celular_cliente.getText();
@@ -314,7 +300,7 @@ public class cliente extends javax.swing.JFrame {
                celular_c+",'"+email_c+"','"+calleynumero_c+"','"+municipio_cliente.getSelectedItem()+"','"+colonia_c+"',"+cp_c+")");
        //borrado de datos de la forma
        CP_cliente.setText("");
-        FDA_cliente.setText("");
+     
         RFC_cliente.setText("");
         calleynumero_cliente.setText("");
         celular_cliente.setText("");
@@ -330,6 +316,37 @@ public class cliente extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+       String id = numero_cliente.getText();
+        try {
+        //creando conexion
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conexion = DriverManager.getConnection ("jdbc:mysql://localhost/coyotefeliz","coyote", "coyote");
+        
+       //creando el vehiculo para ejecutar el query
+        Statement db = conexion.createStatement(); 
+       // se usa executequery para unicamente el SELECT, para lo demas es executeupdate
+       ResultSet result = db.executeQuery("SELECT * FROM cliente WHERE numero="+id);
+       //borrado de datos de la forma
+       result.next();
+
+       CP_cliente.setText(result.getString (11));
+        //FDA_cliente.setText(result.getString (2));
+        RFC_cliente.setText(result.getString (3));
+        calleynumero_cliente.setText(result.getString (8));
+        celular_cliente.setText(result.getString (6));
+        colonia_cliente.setText(result.getString (10));
+        email_cliente.setText(result.getString (7));
+        nombres_cliente.setText(result.getString (2));
+        //numero_cliente.setText(result.getString (2));
+        telefono_cliente.setText(result.getString (5));
+       //hasta al ultimo hay que cerrar la conexion a la db
+       conexion.close();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,11 +384,10 @@ public class cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox CHECKBOX1;
     private javax.swing.JTextField CP_cliente;
-    private javax.swing.JTextField FDA_cliente;
     private javax.swing.JLabel JLABEL;
     private javax.swing.JTextField RFC_cliente;
+    private javax.swing.JButton buscar;
     private javax.swing.JTextField calleynumero_cliente;
     private javax.swing.JTextField celular_cliente;
     private javax.swing.JTextField colonia_cliente;
@@ -381,7 +397,6 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
